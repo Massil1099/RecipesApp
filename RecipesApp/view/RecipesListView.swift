@@ -10,12 +10,23 @@ import SwiftUI
 
 
 struct RecipesListView: View {
+    
     let repository = Injector.recipesRepository
     
     var body: some View {
         VStack {
+            
+            Text("Recipes")
+                .font(.largeTitle)
+                .bold()
+                .padding(.horizontal)
+                .padding(.top)
+                
             List(repository.recipes){recipe in RecipeView(recipe: recipe)
+                    .listRowSeparator(.hidden)   // Enlève les lignes séparatrices
+
             }
+            .listStyle(.plain)
         }
     }
 }
