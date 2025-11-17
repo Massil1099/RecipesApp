@@ -15,6 +15,12 @@ struct RecipeView: View {
     
     var body: some View {
         HStack(spacing: 16){
+            Image(recipe.imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 80, height: 80)
+                .clipped()
+            
             Text(recipe.name)
                 .lineLimit(1)
                 .truncationMode(/*@START_MENU_TOKEN@*/.tail/*@END_MENU_TOKEN@*/)
@@ -22,13 +28,9 @@ struct RecipeView: View {
             Text("\(recipe.prep_time)")
             Text("\(recipe.cook_time)")
             Text("\(recipe.serving)")
+            
 
         }
     }
-}
-
-
-#Preview(traits: .sizeThatFitsLayout) {
-    RecipeView(recipe: Recipe(name: "Simple Cake", prep_time: 10, cook_time: 30, serving: 5))
 }
 
