@@ -19,6 +19,7 @@
 		B45AF8902ECB2E5D00679142 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45AF88F2ECB2E5D00679142 /* Injector.swift */; };
 		B45AF8932ECB306D00679142 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45AF8922ECB306D00679142 /* RecipeView.swift */; };
 		B4FBA3EE2ECB52E20091436F /* RecipesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FBA3ED2ECB52E20091436F /* RecipesListView.swift */; };
+		B4FBA3F02ECB72D70091436F /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FBA3EF2ECB72D70091436F /* Ingredient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		B45AF88F2ECB2E5D00679142 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
 		B45AF8922ECB306D00679142 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 		B4FBA3ED2ECB52E20091436F /* RecipesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListView.swift; sourceTree = "<group>"; };
+		B4FBA3EF2ECB72D70091436F /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				B45AF8852ECB23DD00679142 /* Recipe.swift */,
+				B4FBA3EF2ECB72D70091436F /* Ingredient.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				B45AF8902ECB2E5D00679142 /* Injector.swift in Sources */,
 				B45AF88C2ECB29E700679142 /* RecipesRepository.swift in Sources */,
 				B45AF8932ECB306D00679142 /* RecipeView.swift in Sources */,
+				B4FBA3F02ECB72D70091436F /* Ingredient.swift in Sources */,
 				B4FBA3EE2ECB52E20091436F /* RecipesListView.swift in Sources */,
 				B45AF88E2ECB2AC500679142 /* RecipesRepositoryDummyImpl.swift in Sources */,
 				B45AF85B2ECB17AF00679142 /* RecipesAppApp.swift in Sources */,
