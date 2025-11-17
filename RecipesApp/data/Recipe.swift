@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Recipe {
+struct Recipe: Identifiable {
+    let id = UUID()
     var name: String
     var prep_time: Int
     var cook_time: Int
