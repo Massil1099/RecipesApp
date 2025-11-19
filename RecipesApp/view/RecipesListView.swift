@@ -22,7 +22,10 @@ struct RecipesListView: View {
                 .padding(.horizontal)
                 .padding(.top)
                 
-            List(repository.recipes){recipe in RecipeView(recipe: recipe)
+            List(repository.recipes){recipe in
+                NavigationLink(destination: RecipeDetailsView(recipe: recipe)){
+                    RecipeView(recipe: recipe)
+                }
                     .listRowSeparator(.hidden)   // Enlève les lignes séparatrices
 
             }
