@@ -18,10 +18,10 @@ struct RecipeDetailsView: View {
             
             VStack(alignment: .leading, spacing: 10) {
                 
-                Text(recipe.name)
-                    .font(.largeTitle)
-                    .bold()
-                    .padding(.top)
+                //Text(recipe.name)
+                  //  .font(.largeTitle)
+                  //  .bold()
+                  //  .padding(.top)
                 
                 HStack(alignment: .top) {
                     
@@ -95,9 +95,12 @@ struct RecipeDetailsView: View {
                         .foregroundColor(.gray)
                 }
                 
-            }
+            }        
+            .navigationTitle(recipe.name)
+
             .padding()
         }
+
 }
     
     
@@ -113,6 +116,7 @@ struct RecipeDetailsView: View {
             }
         }
 }
+
 
 
 

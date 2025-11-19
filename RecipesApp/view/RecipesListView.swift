@@ -16,11 +16,11 @@ struct RecipesListView: View {
     var body: some View {
         VStack {
             
-            Text("Recipes")
-                .font(.largeTitle)
-                .bold()
-                .padding(.horizontal)
-                .padding(.top)
+            //Text("Recipes")
+            //    .font(.largeTitle)
+            //    .bold()
+            //    .padding(.horizontal)
+            //    .padding(.top)
                 
             List(repository.recipes){recipe in
                 NavigationLink(destination: RecipeDetailsView(recipe: recipe)){
@@ -31,6 +31,7 @@ struct RecipesListView: View {
             }
             .listStyle(.plain)
         }
+        .navigationTitle("Recipes")
     }
 }
 
