@@ -16,12 +16,26 @@ struct RecipeView: View {
     var body: some View {
         HStack(spacing: 16){
             
-            Image(recipe.imageName)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 80, height: 80)
-                .clipped()
-                .cornerRadius(12)
+            // --- IMAGE ---
+            if let data = recipe.customImageData,
+               let uiImage = UIImage(data: data) {
+                
+                Image(uiImage: uiImage)     // Image choisie par l’utilisateur
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 80, height: 80)
+                    .clipped()
+                    .cornerRadius(12)
+                
+            } else {
+                
+                Image(recipe.imageName)     // Image par défaut
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 80, height: 80)
+                    .clipped()
+                    .cornerRadius(12)
+            }
             
             VStack(alignment: .leading, spacing:6) {
                 Text(recipe.name)

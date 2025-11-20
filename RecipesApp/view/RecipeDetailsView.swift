@@ -8,10 +8,18 @@
 import Foundation
 
 import SwiftUI
+import PhotosUI
 
 struct RecipeDetailsView: View {
+        
+    @Binding var recipe: Recipe
     
-    @State var recipe: Recipe
+    //selectedImage permet de gerer la selection d'une image depuis la photothèque
+    @State private var selectedImage: PhotosPickerItem? = nil //nil = pas de valeur en swift
+    
+    //selectedImageDatade permet de stocker les données de l'image sélectionnée pour l'affichage dynamique
+    @State private var selectedImageData: Data? = nil
+
     
     var body: some View {
         ScrollView {
@@ -64,10 +72,41 @@ struct RecipeDetailsView: View {
                 
                 
                 // Image
-                Image(recipe.imageName)
-                    .resizable()
-                    .scaledToFit()
-                
+                PhotosPicker(
+                    selection: $selectedImage, //lie la selection a notre state
+                    matching: .images, //on ne permet que les images
+                    photoLibrary: .shared() //acces a la photothèque partagé
+                ) {
+                    VStack {
+                        if let data = recipe.customImageData,
+                           let uiImage = UIImage(data: data) {
+                            // Affiche l'image sélectionnée par l'utilisateur
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 350, height: 250)
+                                .cornerRadius(12)
+                            // Sinon affiche l'image par défaut de la recette
+
+                        } else {
+                            Image(recipe.imageName)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 350, height: 250)
+                                .cornerRadius(12)
+                        }
+                    }
+                }
+                .onChange(of: selectedImage) { oldValue, newValue in
+                    Task {
+                        if let data = try? await newValue?.loadTransferable(type: Data.self) {
+                            // On stocke les données de l'image sélectionnée pour l'affichage
+
+                            selectedImageData = data
+                            recipe.customImageData = data //on sauvegarde l'image dans le modèle
+                        }
+                    }
+                }
                 
                 
                 // Ingredients
@@ -118,10 +157,3 @@ struct RecipeDetailsView: View {
 }
 
 
-
-
-
-
-#Preview {
-    RecipeDetailsView(recipe: Injector.recipesRepository.recipes.first!)
-}

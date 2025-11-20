@@ -15,6 +15,7 @@ struct Recipe: Identifiable {
     var serving: Int  // valeur courante du nombre de personnes affiché
     var baseServing: Int // valeur de référence pour quantities (ex: 12 pour Simple Cake)
     var imageName: String
+    var customImageData: Data? = nil
     var ingredients: [Ingredient]
     var directions: String
     

@@ -8,5 +8,5 @@
 import Foundation
 
 class Injector {
-    static let recipesRepository : RecipesRepository = RecipesRepositoryDummyImpl()
+    static let recipesRepository = RecipesRepositoryDummyImpl()
 }

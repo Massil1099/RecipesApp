@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol RecipesRepository {
+protocol RecipesRepository: ObservableObject {
     var recipes: [Recipe] { get }
 }

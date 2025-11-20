@@ -8,7 +8,7 @@
 import Foundation
 
 class RecipesRepositoryDummyImpl: RecipesRepository {
-    private(set) var recipes = [
+    @Published var recipes: [Recipe] = [
         Recipe(name : "Simple cake",
                prep_time: 10,
                cook_time: 30,

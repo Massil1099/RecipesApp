@@ -11,7 +11,7 @@ import SwiftUI
 
 struct RecipesListView: View {
     
-    let repository = Injector.recipesRepository
+    @StateObject var repository = Injector.recipesRepository //le repository devient un @StateObjectt
     
     var body: some View {
         VStack {
@@ -22,8 +22,8 @@ struct RecipesListView: View {
             //    .padding(.horizontal)
             //    .padding(.top)
                 
-            List(repository.recipes){recipe in
-                NavigationLink(destination: RecipeDetailsView(recipe: recipe)){
+            List($repository.recipes){$recipe in
+                NavigationLink(destination: RecipeDetailsView(recipe: $recipe)){
                     RecipeView(recipe: recipe)
                 }
                     .listRowSeparator(.hidden)   // Enlève les lignes séparatrices
