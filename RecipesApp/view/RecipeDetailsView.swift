@@ -118,7 +118,8 @@ struct RecipeDetailsView: View {
                     
                     VStack(alignment: .leading, spacing: 6) {
                         ForEach(recipe.ingredients) { ingredient in
-                            Text("\(ingredient.name) \(formattedQuantity(ingredient))")
+                            let adjusted = ingredient.adjustedQuantity(for: recipe.serving, baseServing: recipe.baseServing)
+                            Text("\(ingredient.name) \(formatted(adjusted))\(ingredient.unit ?? "")")
                                 .font(.subheadline)
                         }
                     }
@@ -143,17 +144,16 @@ struct RecipeDetailsView: View {
 }
     
     
-    // Format quantité dynamique
-        private func formattedQuantity(_ ingredient: Ingredient) -> String {
-            let q = ingredient.quantity
-
-            // si entier : enlever .0
-            if q == floor(q) {
-                return "\(Int(q))\(ingredient.unit ?? "")"
+    // Format dynamique pour les quantités
+        private func formatted(_ quantity: Double) -> String {
+            if quantity == floor(quantity) {
+                return "\(Int(quantity))"
             } else {
-                return String(format: "%.1f%@", q, ingredient.unit ?? "")
+                return String(format: "%.1f", quantity)
             }
         }
+    
+
 }
 
 
