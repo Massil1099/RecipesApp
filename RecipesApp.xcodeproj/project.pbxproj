@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B42852632ED052A100FB40AC /* RecipeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42852622ED052A100FB40AC /* RecipeEditView.swift */; };
+		B42852652ED057EC00FB40AC /* EditableFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42852642ED057EC00FB40AC /* EditableFieldView.swift */; };
 		B45AF85B2ECB17AF00679142 /* RecipesAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45AF85A2ECB17AF00679142 /* RecipesAppApp.swift */; };
 		B45AF85F2ECB17B100679142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B45AF85E2ECB17B100679142 /* Assets.xcassets */; };
 		B45AF8622ECB17B100679142 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B45AF8612ECB17B100679142 /* Preview Assets.xcassets */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B42852622ED052A100FB40AC /* RecipeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEditView.swift; sourceTree = "<group>"; };
+		B42852642ED057EC00FB40AC /* EditableFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableFieldView.swift; sourceTree = "<group>"; };
 		B45AF8572ECB17AF00679142 /* RecipesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B45AF85A2ECB17AF00679142 /* RecipesAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesAppApp.swift; sourceTree = "<group>"; };
 		B45AF85E2ECB17B100679142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 				B45AF8922ECB306D00679142 /* RecipeView.swift */,
 				B4FBA3ED2ECB52E20091436F /* RecipesListView.swift */,
 				B4FBA3F32ECB7F950091436F /* RecipeDetailsView.swift */,
+				B42852622ED052A100FB40AC /* RecipeEditView.swift */,
+				B42852642ED057EC00FB40AC /* EditableFieldView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -302,10 +308,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B42852632ED052A100FB40AC /* RecipeEditView.swift in Sources */,
 				B45AF8862ECB23DD00679142 /* Recipe.swift in Sources */,
 				B45AF8902ECB2E5D00679142 /* Injector.swift in Sources */,
 				B45AF88C2ECB29E700679142 /* RecipesRepository.swift in Sources */,
 				B45AF8932ECB306D00679142 /* RecipeView.swift in Sources */,
+				B42852652ED057EC00FB40AC /* EditableFieldView.swift in Sources */,
 				B4FBA3F42ECB7F950091436F /* RecipeDetailsView.swift in Sources */,
 				B4FBA3F02ECB72D70091436F /* Ingredient.swift in Sources */,
 				B4FBA3EE2ECB52E20091436F /* RecipesListView.swift in Sources */,
