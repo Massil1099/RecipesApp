@@ -11,7 +11,7 @@ import SwiftUI
 import PhotosUI
 
 struct RecipeDetailsView: View {
-        
+    
     @Binding var recipe: Recipe
     
     //selectedImage permet de gerer la selection d'une image depuis la photothèque
@@ -19,7 +19,8 @@ struct RecipeDetailsView: View {
     
     //selectedImageDatade permet de stocker les données de l'image sélectionnée pour l'affichage dynamique
     @State private var selectedImageData: Data? = nil
-
+    
+    
     
     var body: some View {
         ScrollView {
@@ -27,9 +28,9 @@ struct RecipeDetailsView: View {
             VStack(alignment: .leading, spacing: 10) {
                 
                 //Text(recipe.name)
-                  //  .font(.largeTitle)
-                  //  .bold()
-                  //  .padding(.top)
+                //  .font(.largeTitle)
+                //  .bold()
+                //  .padding(.top)
                 
                 HStack(alignment: .top) {
                     
@@ -42,15 +43,18 @@ struct RecipeDetailsView: View {
                     
                     Spacer()
                     
-                    Button("Edit Recipe") {
-                        
+                    NavigationLink {
+                        RecipeEditView(recipe: $recipe)
+                    } label: {
+                        Text("Edit Recipe")
+                            .font(.subheadline)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(Color.purple.opacity(0.10))
+                            .cornerRadius(12)
                     }
-                    .font(.subheadline)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .background(Color.purple.opacity(0.10))
-                    .cornerRadius(12)
                 }
+                
                 
                 
                 // Serving + boutons
@@ -59,7 +63,7 @@ struct RecipeDetailsView: View {
                     Button("-") { recipe.serving -= 1 }
                         .buttonStyle(.bordered)
                         .background(Color.purple.opacity(0.10))
-
+                    
                         .disabled(recipe.serving <= 0)
                     
                     Button("+") {
@@ -67,7 +71,7 @@ struct RecipeDetailsView: View {
                     }
                     .buttonStyle(.bordered)
                     .background(Color.purple.opacity(0.10))
-}
+                }
                 
                 
                 
@@ -87,7 +91,7 @@ struct RecipeDetailsView: View {
                                 .frame(width: 350, height: 250)
                                 .cornerRadius(12)
                             // Sinon affiche l'image par défaut de la recette
-
+                            
                         } else {
                             Image(recipe.imageName)
                                 .resizable()
@@ -101,7 +105,7 @@ struct RecipeDetailsView: View {
                     Task {
                         if let data = try? await newValue?.loadTransferable(type: Data.self) {
                             // On stocke les données de l'image sélectionnée pour l'affichage
-
+                            
                             selectedImageData = data
                             recipe.customImageData = data //on sauvegarde l'image dans le modèle
                         }
@@ -137,23 +141,23 @@ struct RecipeDetailsView: View {
                 
             }        
             .navigationTitle(recipe.name)
-
+            
             .padding()
         }
-
-}
+        
+    }
     
     
     // Format dynamique pour les quantités
-        private func formatted(_ quantity: Double) -> String {
-            if quantity == floor(quantity) {
-                return "\(Int(quantity))"
-            } else {
-                return String(format: "%.1f", quantity)
-            }
+    private func formatted(_ quantity: Double) -> String {
+        if quantity == floor(quantity) {
+            return "\(Int(quantity))"
+        } else {
+            return String(format: "%.1f", quantity)
         }
+    }
     
-
+    
+    
 }
-
 
