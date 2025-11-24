@@ -112,6 +112,7 @@
 		B45AF8592ECB17AF00679142 /* RecipesApp */ = {
 			isa = PBXGroup;
 			children = (
+				B4602D3E2ED44FC900948C98 /* utils */,
 				B45AF8912ECB2F9900679142 /* view */,
 				B45AF8872ECB28E600679142 /* Repository */,
 				B45AF8842ECB236C00679142 /* data */,
@@ -176,6 +177,13 @@
 				B42852642ED057EC00FB40AC /* EditableFieldView.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		B4602D3E2ED44FC900948C98 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
