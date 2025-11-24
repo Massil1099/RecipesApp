@@ -76,10 +76,8 @@ struct RecipeEditView: View {
                             .padding(.vertical, 4)
                         }
                     }
-                    // ✅ BUTTON — NAVIGATE TO ADD VIEW
-                    NavigationLink {
-                        AddIngredientView(recipe: $recipe)
-                    } label: {
+                    // navigation vers une nouvelle view AddIngredientView
+                    NavigationLink(destination: AddIngredientView(recipe: $recipe)) {
                         Label("Add Ingredient", systemImage: "plus.circle")
                             .font(.headline)
                             .padding()
