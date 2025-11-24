@@ -8,8 +8,6 @@
 import Foundation
 import SwiftUI
 
-import SwiftUI
-
 struct RecipeEditView: View {
     
     @Binding var recipe: Recipe
@@ -78,6 +76,18 @@ struct RecipeEditView: View {
                             .padding(.vertical, 4)
                         }
                     }
+                    // ✅ BUTTON — NAVIGATE TO ADD VIEW
+                    NavigationLink {
+                        AddIngredientView(recipe: $recipe)
+                    } label: {
+                        Label("Add Ingredient", systemImage: "plus.circle")
+                            .font(.headline)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.purple.opacity(0.10))
+                            .cornerRadius(10)
+                    }
+                    .padding(.top, 10)
                 }
                 .padding()
             }
